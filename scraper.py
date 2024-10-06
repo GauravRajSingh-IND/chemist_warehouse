@@ -1,5 +1,3 @@
-import time
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -62,9 +60,3 @@ class CWScraper:
 
     def quit(self):
         self.driver.quit()
-
-
-scraper = CWScraper()
-response = scraper.product_data(product_url="https://www.chemistwarehouse.com.au/buy/64065/qv-gentle-wash-1-25kg")
-print(response)
-scraper.quit()
