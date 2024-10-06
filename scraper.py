@@ -43,8 +43,8 @@ class CWScraper:
         # Use the helper function to retrieve product details
         product_name = self.get_element_text(xpaths['name'])
         product_price_now = self.get_element_text(xpaths['price_now'])
-        product_price_mrp = self.get_element_text(xpaths['price_mrp'])
-        product_save = self.get_element_text(xpaths['save'])
+        product_price_mrp = self.get_element_text(xpaths['price_mrp']).replace("Don't Pay RRP: ","")
+        product_save = self.get_element_text(xpaths['save']).replace(" Off RRP","")
         product_image = self.get_element_text(xpaths['image'], attribute='src')
         product_id = self.get_element_text(xpaths['product_id'])
 
@@ -55,7 +55,8 @@ class CWScraper:
             'price_mrp': product_price_mrp,
             'save': product_save,
             'image': product_image,
-            'product_id': product_id
+            'product_id': product_id,
+            'product_link':product_url
             }
 
     def quit(self):
